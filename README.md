@@ -1,6 +1,4 @@
-# 🚀 Neovim Configuration
-
-My personal Neovim setup.
+# Minimal Neovim
 
 ![image](https://github.com/user-attachments/assets/42a3a73c-e61c-470c-9788-258df57abfbe)
 
@@ -114,4 +112,3 @@ Special thanks to:
 - [Typecraft](https://www.youtube.com/@typecraft_dev) - For the excellent Neovim free course, thanks nerd! :)
 - [LazyVim](https://www.lazyvim.org/) - Plugin organization concepts
 - Neovim community for all the amazing plugins and support!
-# minimal-neovim
