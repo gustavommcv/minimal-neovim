@@ -13,6 +13,10 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+      "honza/vim-snippets",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "benfowler/telescope-luasnip.nvim",
     },
   },
   {
