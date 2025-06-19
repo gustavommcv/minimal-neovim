@@ -1,0 +1,2 @@
+-- keymap("n", "<leader>sv", "<C-w>v", opts) -- dividir vertical
+-- keymap("n", "<leader>sh", "<C-w>s", opts) -- dividir horizontal

@@ -1,0 +1,14 @@
+local opt = vim.opt
+
+opt.expandtab = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+
+opt.relativenumber = true
+
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("config") .. "/undodir//"
+vim.fn.mkdir(vim.fn.stdpath("config") .. "/undodir", "p")
+
+opt.cursorline = true
