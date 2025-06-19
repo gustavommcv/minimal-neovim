@@ -1,6 +1,6 @@
 # Minimal Neovim
 
-![442279113-42a3a73c-e61c-470c-9788-258df57abfbe](https://github.com/user-attachments/assets/9f012826-6537-48e6-8363-24999d67c462)
+![442279113-42a3a73c-e61c-470c-9788-258df57abfbe](https://github.com/user-attachments/assets/ba8eb215-4376-4205-9e18-269056c5a9a7)
 
 ## ✨ Key Features
 
