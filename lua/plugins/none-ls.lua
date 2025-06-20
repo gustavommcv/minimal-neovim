@@ -16,11 +16,9 @@ return {
 				-- Formatters
 				null_ls.builtins.formatting.stylua, -- Lua
 				null_ls.builtins.formatting.prettier, -- JS/TS
-				null_ls.builtins.formatting.shfmt, -- Shell
 
 				-- Linters/Diagnostics
-				null_ls.builtins.diagnostics.eslint_d, -- JS/TS
-				null_ls.builtins.diagnostics.shellcheck, -- Shell
+				-- null_ls.builtins.diagnostics.eslint_d, -- JS/TS
 
 				-- Completion
 				null_ls.builtins.completion.spell,
