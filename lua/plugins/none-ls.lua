@@ -29,6 +29,7 @@ return {
 					-- Formatters
 					null_ls.builtins.formatting.stylua, -- Lua
 					null_ls.builtins.formatting.prettier, -- JS/TS
+					null_ls.builtins.formatting.goimports, -- GOlang
 
 					-- Linters/Diagnostics
 					-- null_ls.builtins.diagnostics.eslint_d, -- JS/TS
