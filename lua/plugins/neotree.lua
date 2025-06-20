@@ -14,7 +14,6 @@ return {
 			window = {
 				position = "right",
 				width = 40,
-				vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>"),
 			},
 			filesystem = {
 				follow_current_file = {
