@@ -15,7 +15,7 @@ keymap("n", "<leader>gf", vim.lsp.buf.format, { desc = "[G]o [F]ormat (LSP)" })
 keymap("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
 -- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope find git files" })
+local telescope_builtin = require("telescope.builtin")
+keymap("n", "<leader>ff", telescope_builtin.find_files, { desc = "Telescope find files" })
+keymap("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
+keymap("n", "<C-p>", telescope_builtin.git_files, { desc = "Telescope find git files" })
