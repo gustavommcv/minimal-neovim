@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("notify").setup({
 			render = "simple",
-			top_left = false,
+			top_down = false,
 		})
 
 		vim.notify = require("notify")
