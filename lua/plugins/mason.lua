@@ -13,7 +13,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "gopls" },
+				ensure_installed = { "lua_ls", "ts_ls", "gopls", "dockerls" },
 				handlers = {
 					function(server_name) -- default
 						require("lspconfig")[server_name].setup({})
