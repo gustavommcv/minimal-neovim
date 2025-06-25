@@ -1,7 +1,9 @@
 # Minimal Neovim
 A modern, modular Neovim configuration optimized for productivity and aesthetics. Built with Lua.
 
-![image](https://github.com/user-attachments/assets/824356d5-c5b7-4dbc-b022-6ea3b0a30065)
+![image](https://github.com/user-attachments/assets/dc73f007-d5e4-4b2f-a612-90b4789a68e0)
+![image](https://github.com/user-attachments/assets/02c1a55d-516d-418f-939a-b892a185822b)
+![image](https://github.com/user-attachments/assets/93563bef-2a8c-49d7-93e5-9b2c71a64cd5)
 
 
 ## Key Features
