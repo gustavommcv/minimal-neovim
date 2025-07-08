@@ -68,7 +68,7 @@ mv ~/.config/nvim ~/.config/nvim.bak  # Optional backup
 
 ### 2. Clone and install
 ```sh
-git clone https://github.com/gustavommcv/NeovimSettings.git ~/.config/nvim
+git clone https://github.com/gustavommcv/minimal-neovim ~/.config/nvim
 ```
 
 ### 3. Verify installation
