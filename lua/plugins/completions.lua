@@ -1,9 +1,23 @@
--- Completions settings
--- cmp-nvim-lsp
--- luasnip
--- cmp_luasnip
--- friendly-snippets
 -- nvim-cmp
+-- A completion plugin for neovim coded in Lua.
+-- https://github.com/hrsh7th/nvim-cmp
+
+-- cmp-nvim-lsp
+-- nvim-cmp source for neovim builtin LSP client
+-- https://github.com/hrsh7th/cmp-nvim-lsp
+
+-- luasnip
+-- Snippet Engine for Neovim written in Lua.
+-- https://github.com/L3MON4D3/LuaSnip
+
+-- cmp_luasnip
+-- luasnip completion source for nvim-cmp
+-- https://github.com/saadparwaiz1/cmp_luasnip
+
+-- friendly-snippets
+-- Set of preconfigured snippets for different languages.
+-- https://github.com/rafamadriz/friendly-snippets
+
 return {
 	{
 		"hrsh7th/cmp-nvim-lsp",
@@ -13,17 +27,15 @@ return {
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
-			"honza/vim-snippets",
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"benfowler/telescope-luasnip.nvim",
 		},
 	},
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
 			local cmp = require("cmp")
-			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_vscode").lazy_load({
+				exclude = { "tex" },
+			})
 
 			cmp.setup({
 				snippet = {
@@ -36,31 +48,17 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+					["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp", priority = 1000 },
-					{ name = "luasnip", priority = 750 },
-				}, {
-					{ name = "buffer", priority = 500 },
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "buffer" },
 				}),
-				sorting = {
-					comparators = {
-						cmp.config.compare.offset,
-						cmp.config.compare.exact,
-						cmp.config.compare.score,
-						cmp.config.compare.recently_used,
-						cmp.config.compare.locality,
-						cmp.config.compare.kind,
-						cmp.config.compare.sort_text,
-						cmp.config.compare.length,
-						cmp.config.compare.order,
-					},
-				},
 			})
 		end,
 	},
