@@ -35,7 +35,7 @@ return {
 					-- null_ls.builtins.diagnostics.eslint_d, -- JS/TS
 
 					-- Completion
-					null_ls.builtins.completion.spell,
+					-- null_ls.builtins.completion.spell,
 				},
 			})
 		end,
