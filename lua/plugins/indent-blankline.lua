@@ -1,5 +1,6 @@
---  Indent guides for Neovim
---  https://github.com/lukas-reineke/indent-blankline.nvim
+-- Indent guides for Neovim
+-- https://github.com/lukas-reineke/indent-blankline.nvim
+
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	config = function()

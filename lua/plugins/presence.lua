@@ -1,5 +1,6 @@
 -- Discord Rich Presence for Neovim
 -- https://github.com/andweeb/presence.nvim
+
 return {
   "andweeb/presence.nvim",
   config = function()

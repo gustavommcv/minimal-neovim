@@ -1,3 +1,12 @@
+-- Mason
+-- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers,
+-- linters, and formatters.
+-- https://github.com/mason-org/mason.nvim
+
+-- Mason LSP config
+-- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
+-- https://github.com/mason-org/mason-lspconfig.nvim
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -20,7 +29,7 @@ return {
 					"html",
 					"cssls",
 					"emmet_ls",
-          "ts_ls"
+					"ts_ls",
 				},
 				handlers = {
 					function(server_name) -- default

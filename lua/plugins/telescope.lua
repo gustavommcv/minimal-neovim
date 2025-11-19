@@ -3,6 +3,7 @@
 --
 -- telescope-ui-select.nvim
 -- https://github.com/nvim-telescope/telescope-ui-select.nvim
+
 return {
 	{
 		"nvim-telescope/telescope.nvim",

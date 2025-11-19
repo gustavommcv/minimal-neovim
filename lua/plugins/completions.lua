@@ -1,9 +1,23 @@
--- Completions settings
--- cmp-nvim-lsp
--- luasnip
--- cmp_luasnip
--- friendly-snippets
 -- nvim-cmp
+-- A completion plugin for neovim coded in Lua.
+-- https://github.com/hrsh7th/nvim-cmp
+
+-- cmp-nvim-lsp
+-- nvim-cmp source for neovim builtin LSP client
+-- https://github.com/hrsh7th/cmp-nvim-lsp
+
+-- luasnip
+-- Snippet Engine for Neovim written in Lua.
+-- https://github.com/L3MON4D3/LuaSnip
+
+-- cmp_luasnip
+-- luasnip completion source for nvim-cmp
+-- https://github.com/saadparwaiz1/cmp_luasnip
+
+-- friendly-snippets
+-- Set of preconfigured snippets for different languages.
+-- https://github.com/rafamadriz/friendly-snippets
+
 return {
 	{
 		"hrsh7th/cmp-nvim-lsp",

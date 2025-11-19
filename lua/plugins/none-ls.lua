@@ -1,5 +1,6 @@
 -- null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 -- https://github.com/nvimtools/none-ls.nvim
+
 return {
 	{
 		"nvimtools/none-ls.nvim",
