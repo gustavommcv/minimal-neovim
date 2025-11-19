@@ -19,8 +19,3 @@ local telescope_builtin = require("telescope.builtin")
 keymap("n", "<leader>ff", telescope_builtin.find_files, { desc = "Telescope find files" })
 keymap("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
 keymap("n", "<C-p>", telescope_builtin.git_files, { desc = "Telescope find git files" })
-
--- Love 2D
-keymap("n", "<leader>vv", "<cmd>LoveRun<cr>", { desc = "Run LÖVE" })
-keymap("n", "<leader>vs", "<cmd>LoveStop<cr>", { desc = "Stop LÖVE" })
-keymap("n", "<leader>v", "<nop>", { desc = "LÖVE" })
