@@ -25,7 +25,6 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"gopls",
-					"texlab",
 					"html",
 					"cssls",
 					"emmet_ls",
