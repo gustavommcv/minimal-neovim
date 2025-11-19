@@ -20,6 +20,7 @@ return {
 					"html",
 					"cssls",
 					"emmet_ls",
+          "ts_ls"
 				},
 				handlers = {
 					function(server_name) -- default
