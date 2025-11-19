@@ -29,6 +29,7 @@ return {
 					"cssls",
 					"emmet_ls",
 					"ts_ls",
+          "texlab"
 				},
 				handlers = {
 					function(server_name) -- default
