@@ -21,7 +21,7 @@ return {
 			local null_ls = require("null-ls")
 
 			mason_null_ls.setup({
-				ensure_installed = { "stylua", "jq", "prettier", "goimports" },
+				ensure_installed = { "stylua", "prettier", "goimports" },
 			})
 
 			null_ls.setup({

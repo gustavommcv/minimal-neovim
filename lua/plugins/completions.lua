@@ -48,7 +48,6 @@ return {
 						end
 					end, { "i", "s" }),
 
-					-- SHIFT+TAB navega para trás
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
