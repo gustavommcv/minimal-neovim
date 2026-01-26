@@ -6,8 +6,6 @@ A modern, modular Neovim configuration optimized for productivity and aesthetics
 
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/381828d2-f74e-4883-99b2-4a335cba24f2" />
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/4d84574a-4c30-4cc7-b1b0-acf32f3cc846" />
-
 ## Project Structure
 
 ```sh
