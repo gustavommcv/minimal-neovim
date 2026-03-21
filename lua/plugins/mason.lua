@@ -21,6 +21,7 @@ return {
 					"prettierd",
 					"prettier",
 					"goimports",
+          "ruff",
 					-- Linters
 					"eslint_d",
 				},
@@ -43,6 +44,7 @@ return {
 					"emmet_ls",
 					"ts_ls",
 					"texlab",
+          "pyright"
 				},
 				handlers = {
 					function(server_name)
