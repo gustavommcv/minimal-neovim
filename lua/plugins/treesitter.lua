@@ -3,24 +3,24 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
+	build = ":TSUpdate",
+
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"query",
-				"markdown",
-				"markdown_inline",
-				"javascript",
-				"bibtex",
-				"latex",
-			},
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
+		local ts = require("nvim-treesitter")
+
+		ts.install({
+			"lua",
+			"javascript",
+			"markdown",
+			"vim",
+			"query",
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				pcall(vim.treesitter.start)
+			end,
 		})
 	end,
 }
