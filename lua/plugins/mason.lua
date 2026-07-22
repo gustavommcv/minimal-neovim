@@ -44,7 +44,8 @@ return {
 					"emmet_ls",
 					"ts_ls",
 					"texlab",
-          "pyright"
+          "pyright",
+          "arduino_language_server"
 				},
 				handlers = {
 					function(server_name)
