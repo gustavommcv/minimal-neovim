@@ -21,7 +21,7 @@ return {
 					"prettierd",
 					"prettier",
 					"goimports",
-          "ruff",
+					"ruff",
 					-- Linters
 					"eslint_d",
 				},
@@ -44,12 +44,28 @@ return {
 					"emmet_ls",
 					"ts_ls",
 					"texlab",
-          "pyright",
-          "arduino_language_server"
+					"pyright",
+					"arduino_language_server",
 				},
 				handlers = {
 					function(server_name)
 						require("lspconfig")[server_name].setup({})
+					end,
+
+					["arduino_language_server"] = function()
+						require("lspconfig").arduino_language_server.setup({
+							cmd = {
+								"arduino-language-server",
+								"-cli",
+								"arduino-cli",
+								"-cli-config",
+								vim.fn.expand("~/.arduino15/arduino-cli.yaml"),
+								"-fqbn",
+								"arduino:avr:leonardo",
+								"-clangd",
+								"/usr/bin/clangd",
+							},
+						})
 					end,
 				},
 			})
