@@ -22,7 +22,9 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>cl", function()
+		-- Note: <leader>cl is taken by Trouble's LSP list (see trouble.lua),
+		-- so the manual lint trigger uses a capital L instead.
+		vim.keymap.set("n", "<leader>cL", function()
 			lint.try_lint()
 		end, { desc = "[C]ode [L]int" })
 	end,

@@ -1,3 +1,3 @@
-undodir
-.luarc.json
-
+# OS artifacts that can otherwise end up in the repo directory.
+.DS_Store
+Thumbs.db

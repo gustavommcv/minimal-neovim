@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+
+jobs:
+  format:
+    name: Lua formatting (stylua)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install stylua
+        run: |
+          curl -sSL -o stylua.zip \
+            https://github.com/JohnnyMorganz/StyLua/releases/download/v2.5.2/stylua-linux-x86_64.zip
+          unzip stylua.zip
+          chmod +x stylua
+          sudo mv stylua /usr/local/bin/stylua
+      - name: Check formatting
+        run: stylua --check .
+
+  headless:
+    name: Headless startup (Neovim ${{ matrix.neovim }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        neovim: ["v0.12.4"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim
+        run: |
+          curl -sSL -o nvim-linux-x86_64.tar.gz \
+            https://github.com/neovim/neovim/releases/download/${{ matrix.neovim }}/nvim-linux-x86_64.tar.gz
+          tar xzf nvim-linux-x86_64.tar.gz
+          echo "$PWD/nvim-linux-x86_64/bin" >> "$GITHUB_PATH"
+
+      - name: Check every Lua file parses
+        run: |
+          nvim --headless -u NONE -c '
+            lua for _, f in ipairs(vim.fn.glob("lua/**/*.lua", false, true)) do
+              local ok, err = loadfile(f)
+              if not ok then error(f .. ": " .. err) end
+            end
+            for _, f in ipairs(vim.fn.glob("after/**/*.lua", false, true)) do
+              local ok, err = loadfile(f)
+              if not ok then error(f .. ": " .. err) end
+            end
+            print("OK")
+          ' -c 'qa'
+
+      # Installs and compiles every configured plugin/parser in a clean,
+      # empty data directory. This step needs network access and a C
+      # compiler; treat failures here as a signal to investigate, but note
+      # that transient network errors can also cause a red build.
+      - name: Sync plugins in a clean environment
+        env:
+          NVIM_APPNAME: minimal-neovim-ci
+        run: nvim --headless "+Lazy! sync" "+qa"
+
+      - name: Headless startup smoke test
+        env:
+          NVIM_APPNAME: minimal-neovim-ci
+        run: |
+          nvim --headless "+qa" 2>startup.log
+          if grep -qi "error" startup.log; then
+            cat startup.log
+            exit 1
+          fi

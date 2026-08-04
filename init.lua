@@ -1,10 +1,8 @@
 vim.g.mapleader = " "
-vim.g.vimtex_view_method = "zathura"
-vim.g.vimtex_compiler_method = "latexmk"
 vim.g.maplocalleader = " "
 
 require("config.lazy")
 
-require("core.options")
-require("core.keymaps")
-require("core.theme")
+require("config.options")
+require("config.keymaps")
+require("config.diagnostics")
