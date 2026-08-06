@@ -20,10 +20,17 @@ platform-specific ones:
 ## An LSP server never attaches
 
 1. `:LspInfo` — is the server even listed for this filetype?
-2. `:Mason` — is it installed? Servers that need Node.js or Go only build
-   successfully if that toolchain was on `$PATH` *when Mason installed them*;
-   if you installed Node/Go afterwards, run `:MasonUninstall <tool>` then
-   reinstall.
+2. `:Mason` — is it installed?
+   - `gopls`/`goimports` need the Go toolchain only *at install time*
+     (`go install` compiles a standalone binary) — if you installed Go
+     afterwards, `:MasonUninstall <tool>` then reinstall.
+   - `html`, `cssls`, `emmet_ls`, `ts_ls`, `pyright`, `prettierd`,
+     `prettier`, `eslint_d` are npm packages: plain JS programs that need
+     `node` on `$PATH` every time they *run*, not just at install time. If
+     `node` isn't on `$PATH` for the session Neovim was launched from, these
+     fail to start even though Mason shows them as installed and
+     `vim.lsp.is_enabled()` returns `true` — check `node --version` in the
+     same terminal you launch `nvim` from.
 3. `:checkhealth vim.lsp` — shows attached clients per buffer.
 4. Check `after/lsp/<server>.lua` if one exists for that server — a typo in
    `cmd` fails silently until you check `:LspLog`.

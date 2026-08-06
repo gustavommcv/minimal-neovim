@@ -30,11 +30,18 @@ changed.
   live grep picker.
 - **A [Nerd Font](https://www.nerdfonts.com/)** in your terminal, for icons.
 
-Optional, depending on what you edit:
+Optional, depending on what you edit — but note that five of the eight
+default-enabled LSP servers plus three formatters/linters need Node.js, so
+skip it only if you're sure you'll never touch JS/TS/HTML/CSS/Python:
 
-- **Node.js** — most JS/TS/HTML/CSS/Emmet language servers are installed by
-  Mason via npm.
-- **Go toolchain** — `gopls`/`goimports` are built by Mason via `go install`.
+- **Node.js** — `html`, `cssls`, `emmet_ls`, `ts_ls` and, somewhat
+  non-obviously, **`pyright`** are npm packages: plain JS programs that need
+  a working `node` on `$PATH` every time they run, not just when Mason
+  installs them. Same for the `prettierd`/`prettier`/`eslint_d` formatter
+  and linter.
+- **Go toolchain** — `gopls`/`goimports` are built by Mason via `go install`;
+  the resulting binaries are standalone afterwards, so Go is only needed
+  once, at install time.
 - **A LaTeX distribution** (TeX Live, MiKTeX) plus a PDF viewer for `vimtex`.
 - **arduino-cli** and **clangd** — only if you use the optional Arduino LSP
   (see [after/lsp/arduino_language_server.lua](after/lsp/arduino_language_server.lua)).
