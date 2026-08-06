@@ -5,10 +5,17 @@
 See the [requirements list in the README](../README.md#requirements) for what
 each dependency is for. Below is how to get them per OS.
 
+Mason (see [plugins.md](plugins.md#lsp-stack)) installs most LSP servers,
+formatters and linters by downloading a `.zip` and extracting it with the
+system `unzip` command. Neither Arch nor a minimal Debian/Ubuntu install
+includes `unzip` by default — without it, Mason installs fail with
+`Could not find executable "unzip" in PATH` (confirmed while troubleshooting
+this on Arch Linux/WSL). It's included in the commands below.
+
 ### Linux (Debian/Ubuntu example; adjust for your package manager)
 
 ```sh
-sudo apt install git ripgrep clang
+sudo apt install git ripgrep clang unzip
 # Neovim >= 0.12: your distro's repo may lag behind; the AppImage or a
 # release tarball from https://github.com/neovim/neovim/releases is the
 # most reliable way to get 0.12+.
@@ -18,17 +25,17 @@ npm install -g tree-sitter-cli   # or: cargo install tree-sitter-cli
 ### Arch Linux
 
 ```sh
-sudo pacman -S neovim git ripgrep tree-sitter-cli
+sudo pacman -S neovim git ripgrep tree-sitter-cli unzip
 sudo pacman -S gcc     # or: sudo pacman -S clang
 ```
 
 Everything needed is in the official `extra`/`core` repos and tracks current
 upstream releases closely — checked directly against the Arch package
 database while writing this: `neovim` 0.12.4, `git` 2.55.0, `ripgrep`
-15.2.0, `tree-sitter-cli` 0.26.9, `clang` 22.1.8, `gcc` 16.1.1. No AUR
-package is required for anything in the requirements list. `gcc` is usually
-already pulled in by `base-devel` if you have that installed; either
-compiler works, pick whichever you already have.
+15.2.0, `tree-sitter-cli` 0.26.9, `unzip` 6.0, `clang` 22.1.8, `gcc` 16.1.1.
+No AUR package is required for anything in the requirements list. `gcc` is
+usually already pulled in by `base-devel` if you have that installed;
+either compiler works, pick whichever you already have.
 
 ### macOS
 
