@@ -15,6 +15,21 @@ sudo apt install git ripgrep clang
 npm install -g tree-sitter-cli   # or: cargo install tree-sitter-cli
 ```
 
+### Arch Linux
+
+```sh
+sudo pacman -S neovim git ripgrep tree-sitter-cli
+sudo pacman -S gcc     # or: sudo pacman -S clang
+```
+
+Everything needed is in the official `extra`/`core` repos and tracks current
+upstream releases closely — checked directly against the Arch package
+database while writing this: `neovim` 0.12.4, `git` 2.55.0, `ripgrep`
+15.2.0, `tree-sitter-cli` 0.26.9, `clang` 22.1.8, `gcc` 16.1.1. No AUR
+package is required for anything in the requirements list. `gcc` is usually
+already pulled in by `base-devel` if you have that installed; either
+compiler works, pick whichever you already have.
+
 ### macOS
 
 ```sh
