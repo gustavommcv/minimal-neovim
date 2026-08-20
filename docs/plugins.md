@@ -63,8 +63,24 @@ unmaintained again, the fallback is the fully-native approach above.
 | --- | --- | --- | --- | --- |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | `telescope.lua` | `cmd`, `keys` | Fuzzy finder | `fzf-lua` (comparable; telescope kept, no compelling reason to churn) |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim) | `telescope.lua` | dependency | Routes `vim.ui.select()` (e.g. code actions) through Telescope | Default `vim.ui.select` (less discoverable UI) |
-| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | `neotree.lua` | `cmd`, `keys` | File explorer sidebar | Netrw (kept minimal on purpose, but no persistent tree/filtering), `oil.nvim` (buffer-as-directory model; not evaluated) |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | `neotree.lua` | `cmd`, `keys`, or eager if started on a directory | File explorer sidebar | Netrw (kept minimal on purpose, but no persistent tree/filtering), `oil.nvim` (buffer-as-directory model; not evaluated) |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | `gitsigns.lua` | `BufReadPre`, `BufNewFile` | Git gutter signs + hunk navigation (`]c`/`[c`) | Signs alone need no plugin config at all (gitsigns needs no `setup()` call); stage/reset/preview/blame keymaps were deliberately left out — see [migration.md](migration.md) |
+
+`neotree.lua` sets `lazy = false` for the one case of Neovim starting with a
+single directory argument (`nvim path/to/dir`) — otherwise it stays
+`cmd`/`keys`-lazy as normal. That's the *only* thing this config adds:
+neo-tree's own `M.setup()` (in its `neo-tree.lua`) already hijacks netrw for
+a directory argument and, via `filesystem.bind_to_cwd` (on by default),
+syncs Neovim's `cwd` to match — confirmed by reading its source
+(`lua/neo-tree.lua`, `lua/neo-tree/setup/netrw.lua`). The catch is that this
+only runs if `setup()` executes before `VimEnter` (it checks
+`vim.v.vim_did_enter == 0` itself); purely `cmd`/`keys`-triggered loading
+never gets there in time, so native netrw wins the race instead and opens a
+bare `:Ex`-style listing, rooted at whatever `cwd` already was rather than
+the directory you asked for. An earlier version of this fix hand-rolled a
+`VimEnter` autocmd to disable netrw and redo all of this manually; it was
+strictly worse — more code, and a real bug (relative-path resolution) along
+the way — for reimplementing what neo-tree already does more carefully.
 
 `3rd/image.nvim` (image previews inside neo-tree) was removed as a
 dependency: it requires ImageMagick and fails to build out of the box on
